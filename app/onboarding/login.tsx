@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import "../global.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -41,7 +42,7 @@ const Login = () => {
       </View>
 
       {/* Email Input */}
-      <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>
+      <Text className="mr-5 text-white" style={{ marginBottom: 5, fontFamily: "Bold" }}>
         Email address
       </Text>
       <TextInput

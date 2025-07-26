@@ -2,7 +2,7 @@ import SplashScreen from "@/components/SplashScreen";
 import React from "react";
 import { View, Text } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import "../global.css";
+// import "./global.css";
 
 const index = () => {
   return (

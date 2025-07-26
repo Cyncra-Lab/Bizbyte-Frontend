@@ -1,9 +1,10 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import Navigation from "@/components/Navigation";
 import Header from "@/components/Header";
+import InfoCards from "@/components/InfoCards";
+import Navigation from "@/components/Navigation";
+import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import React from "react";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 const Index = () => {
   const router = useRouter();
@@ -29,20 +30,12 @@ const Index = () => {
   ];
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#FAFAFA" }}>
+    <View className="flex-1 bg-[#FAFAFA] h-[100vh]">
       {/* Header */}
       <Header />
 
       {/* Greeting & Add Product */}
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginVertical: 5,
-          padding: 20,
-        }}
-      >
+      <View className="flex-row justify-between items-center p-5">
         <View>
           <Text style={{ fontSize: 20, fontFamily: "Bold" }}>
             Hello, David Smith
@@ -53,207 +46,23 @@ const Index = () => {
         </View>
         <TouchableOpacity
           onPress={() => router.push("/products/add-product" as never)}
-          style={{
-            backgroundColor: "#6628EB",
-            paddingVertical: 10,
-            paddingHorizontal: 25,
-            borderRadius: 8,
-            alignItems: "center",
-            flexDirection: "row",
-            justifyContent: "center",
-            display: "flex",
-            gap: 5,
-          }}
+          className="bg-[#6628EB] py-3 px-5 rounded-[8px] flex-row items-center justify-center gap-3"
         >
           <Image
             source={require("../../assets/images/addIcon.png")}
-            style={{
-              width: 24,
-              height: 24,
-            }}
+            className="h-[20px] w-[20px]"
           />
-          <Text style={{ color: "#fff", fontFamily: "Bold", fontSize: 16 }}>
+          <Text className="text-white text-[16px] font-medium">
             Add Product
           </Text>
         </TouchableOpacity>
       </View>
 
       {/* Info Cards */}
-      <View
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          paddingHorizontal: 20,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "#6628EB",
-            width: "48%",
-            borderRadius: 20,
-            padding: 20,
-            marginBottom: 15,
-          }}
-        >
-          <View
-            style={{
-              marginBottom: 10,
-              gap: 10,
-            }}
-          >
-            <Image
-              source={require("../../assets/images/growIcon.png")}
-              style={{
-                width: 38,
-                height: 38,
-                marginBottom: 10,
-              }}
-            />
-            <Text
-              style={{ color: "#D0D9E2", fontFamily: "Bold", fontSize: 16 }}
-            >
-              Total Sales Today
-            </Text>
-          </View>
-          <Text
-            style={{
-              color: "#fff",
-              fontSize: 24,
-              fontFamily: "Bold",
-            }}
-          >
-            ₦15,230
-          </Text>
-        </View>
-
-        <View
-          style={{
-            backgroundColor: "#fff",
-            width: "48%",
-            borderRadius: 20,
-            padding: 20,
-            marginBottom: 15,
-            // Shadow for iOS
-            shadowColor: "#3326AE", // 8% opacity
-            shadowOffset: { width: 0, height: 8.67 },
-            shadowOpacity: 0.08,
-            shadowRadius: 17.24,
-            // Shadow for Android
-            elevation: 8,
-          }}
-        >
-          <View
-            style={{
-              marginBottom: 10,
-              gap: 10,
-            }}
-          >
-            <Image
-              source={require("../../assets/images/soldIcon.png")}
-              style={{
-                width: 38,
-                height: 38,
-                marginBottom: 10,
-              }}
-            />
-            <Text style={{ fontFamily: "Bold", fontSize: 16 }}>
-              Items Sold Today
-            </Text>
-          </View>
-
-          <Text style={{ fontFamily: "Bold", fontSize: 24 }}>25</Text>
-        </View>
-
-        <View
-          style={{
-            backgroundColor: "#fff",
-            width: "48%",
-            borderRadius: 20,
-            padding: 20,
-            marginBottom: 15,
-            // Shadow for iOS
-            shadowColor: "#3326AE", // 8% opacity
-            shadowOffset: { width: 0, height: 8.67 },
-            shadowOpacity: 0.08,
-            shadowRadius: 17.24,
-            // Shadow for Android
-            elevation: 4,
-          }}
-        >
-          <View
-            style={{
-              marginBottom: 10,
-              gap: 10,
-            }}
-          >
-            <Image
-              source={require("../../assets/images/stocksIcon.png")}
-              style={{
-                width: 38,
-                height: 38,
-                marginBottom: 10,
-              }}
-            />
-            <Text style={{ fontFamily: "Bold", fontSize: 16 }}>
-              Total Stocks Left
-            </Text>
-          </View>
-          <Text style={{ fontFamily: "Bold", fontSize: 24 }}>346</Text>
-        </View>
-
-        <View
-          style={{
-            backgroundColor: "#fff",
-            width: "48%",
-            borderRadius: 20,
-            padding: 20,
-            marginBottom: 15,
-            // Shadow for iOS
-            shadowColor: "#3326AE", // 8% opacity
-            shadowOffset: { width: 0, height: 8.67 },
-            shadowOpacity: 0.08,
-            shadowRadius: 17.24,
-            // Shadow for Android
-            elevation: 4,
-          }}
-        >
-          <View
-            style={{
-              marginBottom: 10,
-              gap: 10,
-            }}
-          >
-            <Image
-              source={require("../../assets/images/lowIcon.png")}
-              style={{
-                width: 38,
-                height: 38,
-                marginBottom: 10,
-              }}
-            />
-            <Text style={{ fontFamily: "Bold", fontSize: 16 }}>
-              Low-Stock Product
-            </Text>
-          </View>
-
-          <Text style={{ fontFamily: "Bold", fontSize: 24, color: "#E69500" }}>
-            25
-          </Text>
-        </View>
-      </View>
+      <InfoCards />
 
       {/* My Products */}
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 10,
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-        }}
-      >
+      <View className="flex-row justify-between items-center mb-[10px] px-5 py-[10px]">
         <Text style={{ fontFamily: "Bold", fontSize: 18 }}>My Products</Text>
         <TouchableOpacity>
           <Text style={{ color: "#6628EB", fontFamily: "Bold", fontSize: 16 }}>

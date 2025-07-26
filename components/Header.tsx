@@ -1,50 +1,35 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import {
-  View,
   //   Text,
   Image,
-  TouchableOpacity,
   SafeAreaView,
+  TouchableOpacity,
+  View,
 } from "react-native";
-// import { useRouter } from "expo-router";
 
 const Header = () => {
-  //   const router = useRouter();
+  const router = useRouter();
 
   return (
-    <SafeAreaView
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        paddingHorizontal: 20,
-        paddingTop: 55,
-        paddingBottom: 15,
-        // Shadow for iOS
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
-        // Shadow for Android
-        elevation: 4,
-      }}
-    >
+    <SafeAreaView className="flex-row justify-between items-center bg-white px-5 pt-[55px] pb-[15px] shadow-lg">
       <Image
         source={require("../assets/images/dashboardLogo.png")}
-        style={{ width: "25%", height: 35, resizeMode: "contain" }}
+        className="h-[35px] w-[25%] mask-contain"
       />
-      <View style={{ flexDirection: "row", gap: 20, alignItems: "center" }}>
-        <TouchableOpacity>
+      <View className="flex-row items-center gap-5">
+        <TouchableOpacity
+          onPress={() => router.push("/notifications" as never)}
+        >
           <Image
             source={require("../assets/images/notificationIcon.png")}
-            style={{ width: 24, height: 24 }}
+            className="h-[24px] w-[24px]"
           />
         </TouchableOpacity>
         <TouchableOpacity>
           <Image
             source={require("../assets/images/profileIcon.png")}
-            style={{ width: 28, height: 28 }}
+            className="h-[28px] w-[28px]"
           />
         </TouchableOpacity>
       </View>

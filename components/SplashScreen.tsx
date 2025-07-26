@@ -49,7 +49,7 @@ const SplashScreen = () => {
       if (current >= 100) {
         clearInterval(interval);
       }
-    }, 20); // adjust speed here
+    }, 30); // adjust speed here
   };
 
   useEffect(() => {

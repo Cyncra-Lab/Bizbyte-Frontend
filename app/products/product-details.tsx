@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import SubNav from "@/components/SubNav";
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const ProductDetails = () => {
   return (
@@ -195,6 +195,7 @@ const ProductDetails = () => {
 
           <View style={{ alignItems: "flex-end", width: "48%" }}>
             <TouchableOpacity
+              className="bg-red-500 px-50"
               style={{
                 alignItems: "center",
                 justifyContent: "center",
@@ -218,9 +219,15 @@ const ProductDetails = () => {
                   color: "#E69500",
                 }}
               >
-                Delete
+                Edit
               </Text>
             </TouchableOpacity>
+          </View>
+
+          <View className="flex-1 items-center justify-center bg-white">
+            <Text className="text-xl font-bold text-blue-500">
+              Welcome to Nativewind!
+            </Text>
           </View>
         </View>
       </View>
