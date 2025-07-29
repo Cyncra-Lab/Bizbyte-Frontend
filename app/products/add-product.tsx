@@ -1,44 +1,36 @@
 import Header from "@/components/Header";
+import AddProductBottomSheet from "@/components/Modals/AddProductBottomSheet";
 import SubNav from "@/components/SubNav";
-import React from "react";
+import React, { useState } from "react";
 import {
-  View,
+  Image,
+  ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  Image,
+  View,
 } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const AddProduct = () => {
+  const [showSheet, setShowSheet] = useState(false);
+
   return (
-    <View style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <Header />
       <SubNav title="Add Product" />
       <ScrollView
         contentContainerStyle={{
           padding: 20,
-          //   backgroundColor: "#fff",
           flexGrow: 1,
           marginBottom: 50,
           flex: 1,
         }}
       >
-        {/* Product Image Upload */}
         <Text style={{ marginBottom: 10, fontFamily: "Bold", fontSize: 16 }}>
           Product Image
         </Text>
-        <View
-          style={{
-            borderWidth: 1,
-            borderStyle: "dashed",
-            borderColor: "#6628EB",
-            borderRadius: 10,
-            padding: 20,
-            alignItems: "center",
-            marginBottom: 20,
-          }}
-        >
+        <View className="border border-dashed border-[#6628EB] rounded-[12px] bg-white p-6 items-center mb-[20px]">
           <Image
             source={require("../../assets/images/uploadIcon.png")}
             style={{ width: 44, height: 44, marginBottom: 5 }}
@@ -74,177 +66,82 @@ const AddProduct = () => {
         </View>
 
         <ScrollView style={{ flex: 1, paddingBottom: 120, marginBottom: 20 }}>
-          {/* Name of Product */}
           <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>
             Name of Product
           </Text>
           <TextInput
             placeholder="Enter product name"
-            style={{
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              padding: 10,
-              marginBottom: 15,
-              fontFamily: "Regular",
-            }}
+            className="border bg-white border-[#d1d5db] rounded-[8px] px-4 py-4 mb-4 font-regular"
           />
 
-          {/* Category */}
           <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>Category</Text>
           <TextInput
             placeholder="Select Category"
-            style={{
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              padding: 10,
-              marginBottom: 15,
-              fontFamily: "Regular",
-            }}
+            className="border bg-white border-[#d1d5db] rounded-[8px] px-4 py-4 mb-4 font-regular"
           />
 
-          {/* Price */}
           <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>Price</Text>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              marginBottom: 15,
-            }}
-          >
-            <Text
-              style={{ padding: 10, color: "#6b7280", fontFamily: "Regular" }}
-            >
-              NGN
-            </Text>
+          <View className="border flex-row items-center bg-white border-[#d1d5db] rounded-[8px] px-4 py-1 mb-4 font-regular">
+            <Text className="font-medium text-lg">NGN |</Text>
             <TextInput
               placeholder="Enter Amount"
-              style={{ flex: 1, padding: 10, fontFamily: "Regular" }}
+              className="w-[80%] font-regular"
               keyboardType="numeric"
             />
           </View>
 
-          {/* Quantity */}
           <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>Quantity</Text>
           <TextInput
             placeholder="Enter Quantity"
-            style={{
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              padding: 10,
-              marginBottom: 15,
-              fontFamily: "Regular",
-            }}
+            className="border bg-white border-[#d1d5db] rounded-[8px] px-4 py-4 mb-4 font-regular"
           />
 
-          {/* Low Stock Threshold */}
           <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>
             Low Stock Threshold
           </Text>
           <TextInput
             placeholder="e.g., 5 units — triggers alert when reached"
-            style={{
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              padding: 10,
-              marginBottom: 15,
-              fontFamily: "Regular",
-            }}
+            className="border bg-white border-[#d1d5db] rounded-[8px] px-4 py-4 mb-4 font-regular"
           />
 
-          {/* Price (again?) */}
-          <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>Price</Text>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              marginBottom: 15,
-            }}
-          >
-            <Text
-              style={{ padding: 10, color: "#6b7280", fontFamily: "Regular" }}
-            >
-              NGN
-            </Text>
-            <TextInput
-              placeholder="Enter Amount"
-              style={{ flex: 1, padding: 10, fontFamily: "Regular" }}
-              keyboardType="numeric"
-            />
-          </View>
-
-          {/* Description */}
-          <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>
-            Description
-          </Text>
+          <Text className="text-[16px] mb-[5px] font-medium">Description</Text>
           <TextInput
             placeholder="Enter description"
-            style={{
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              padding: 10,
-              marginBottom: 5,
-              fontFamily: "Regular",
-            }}
+            className="border bg-white border-[#d1d5db] rounded-[8px] px-4 py-4 mb-1 font-regular"
           />
-          <Text
-            style={{
-              color: "#727849",
-              fontSize: 12,
-              marginBottom: 15,
-              fontFamily: "Bold",
-            }}
-          >
+          <Text className="text-[#727849] text-[14px] mb-[15px] font-medium">
             ⓘ This is optional
           </Text>
-          {/* Product Code or SKU */}
+
           <Text style={{ marginBottom: 5, fontFamily: "Bold" }}>
             Product Code or SKU
           </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              borderWidth: 1,
-              borderColor: "#d1d5db",
-              borderRadius: 5,
-              marginBottom: 5,
-              paddingVertical: 10,
-            }}
-          >
+          <View className="flex-row bg-white items-center border border-[#d1d5db] rounded-[8px] mb-[5px] py-[10px]">
             <TextInput
               placeholder="Enter code here or auto generate"
               style={{ flex: 1, padding: 10, fontFamily: "Regular" }}
             />
-            <TouchableOpacity
-              style={{
-                backgroundColor: "#18CB96",
-                paddingHorizontal: 15,
-                paddingVertical: 10,
-                borderRadius: 5,
-                marginRight: 10,
-              }}
-            >
+            <TouchableOpacity className="bg-[#18CB96] px-4 py-3 rounded-[4px] mr-[10px]">
               <Text style={{ color: "#fff", fontFamily: "Bold" }}>
                 Auto generate
               </Text>
             </TouchableOpacity>
           </View>
-          <Text style={{ color: "#727849", fontSize: 12, fontFamily: "Bold" }}>
+          <Text className="text-[#727849] text-[14px] mb-4 font-medium">
             ⓘ This is optional
           </Text>
         </ScrollView>
       </ScrollView>
+
+      <AddProductBottomSheet
+        visible={showSheet}
+        onClose={() => setShowSheet(false)}
+        onConfirm={() => {
+          console.log("Product added");
+          setShowSheet(false);
+        }}
+      />
+
       <TouchableOpacity
         style={{
           position: "absolute",
@@ -256,13 +153,13 @@ const AddProduct = () => {
           borderRadius: 10,
           alignItems: "center",
         }}
-        onPress={() => console.log("Product Added")}
+        onPress={() => setShowSheet(true)}
       >
         <Text style={{ color: "#fff", fontSize: 16, fontFamily: "Bold" }}>
           Add Product
         </Text>
       </TouchableOpacity>
-    </View>
+    </GestureHandlerRootView>
   );
 };
 

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import React, { useState } from "react";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import "../global.css";
 
 const Login = () => {
@@ -42,21 +42,14 @@ const Login = () => {
       </View>
 
       {/* Email Input */}
-      <Text className="mr-5 text-white" style={{ marginBottom: 5, fontFamily: "Bold" }}>
+      <Text className="mr-5 text-black" style={{ marginBottom: 5, fontFamily: "Bold" }}>
         Email address
       </Text>
       <TextInput
         value={email}
         onChangeText={setEmail}
         placeholder="example@gmail.com"
-        style={{
-          borderWidth: 1,
-          borderColor: "#ccc",
-          borderRadius: 5,
-          padding: 12,
-          marginBottom: 15,
-          fontFamily: "Regular",
-        }}
+        className="border border-[#ccc] rounded-[5px] p-[12px] px-4 mb-[15px] font-regular"
       />
       
 

@@ -63,7 +63,7 @@ const Index = () => {
 
       {/* My Products */}
       <View className="flex-row justify-between items-center mb-[10px] px-5 py-[10px]">
-        <Text style={{ fontFamily: "Bold", fontSize: 18 }}>My Products</Text>
+        <Text className="text-xl font-medium">My Products</Text>
         <TouchableOpacity>
           <Text style={{ color: "#6628EB", fontFamily: "Bold", fontSize: 16 }}>
             See all
@@ -75,36 +75,16 @@ const Index = () => {
         {data.map((item) => (
           <View
             key={item.id}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              backgroundColor: "#fff",
-              borderRadius: 10,
-              padding: 20,
-              marginHorizontal: 20,
-              marginVertical: 5,
-              shadowColor: "#000",
-              shadowOffset: { width: 0, height: 2 },
-              shadowOpacity: 0.2,
-              shadowRadius: 4,
-              elevation: 1,
-            }}
+            className="flex-row items-center bg-white rounded-[10px] p-5 mx-5 my-[5px] shadow-md"
           >
             <Image
               source={item.image}
-              style={{
-                width: 50,
-                height: 50,
-                marginRight: 15,
-                borderRadius: 5,
-                resizeMode: "contain",
-              }}
+              className="w-[50px] h-[50px] mr-[15px] rounded-[5px]"
+              style={{ resizeMode: "contain" }}
             />
             <View style={{ flex: 1 }}>
-              <Text style={{ fontWeight: "bold", fontSize: 16 }}>
-                {item.name}
-              </Text>
-              <Text style={{ color: "#555", fontSize: 14 }}>
+              <Text className="font-medium text-[16px]">{item.name}</Text>
+              <Text className="text-[#555] text-regular">
                 {item.unitsLeft} units left
               </Text>
             </View>
